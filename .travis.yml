@@ -9,9 +9,7 @@ before_script:
 
 script:
   - dd if=/dev/zero of=/tmp/testfile bs=1024 count=10240
-  - cd /tmp
-  - ls -lha
-  - pwd
+  - ruby -v
 
 jobs:
   include:
