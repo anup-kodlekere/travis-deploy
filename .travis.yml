@@ -1,9 +1,5 @@
 language: go
 
-dist: focal # default (xenial) does not work
-arch: ppc64le
-os: linux
-
 go:
 - 1.18
 
@@ -17,8 +13,21 @@ script:
   - ls -lha
   - pwd
 
+jobs:
+  include:
+    - name: Power
+      dist: focal # default (xenial) does not work
+      arch: ppc64le
+      os: linux
+      
+    - name: x86
+      dist: focal
+      os: linux
+
 deploy:
   provider: releases
   api_key: ${GITHUB_OAUTH_TOKEN}
   file: /tmp/testfile
   skip_cleanup: true
+  on:
+    branch: deploy
