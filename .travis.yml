@@ -1,0 +1,23 @@
+language: go
+
+dist: focal # default (xenial) does not work
+arch: ppc64le
+os: linux
+
+go:
+- 1.18
+
+before_script:
+- sudo apt update -y
+- sudo apt install zip git -y
+
+script:
+  - dd if=/dev/zero of=/tmp/testfile bs=1024 count=10240
+  - ls -lha
+  - pwd
+
+deploy:
+  provider: releases
+  api_key: ${GITHUB_OAUTH_TOKEN}
+  file: /tmp/testfile
+  skip_cleanup: true
