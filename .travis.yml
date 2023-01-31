@@ -1,7 +1,6 @@
-language: go
-
-go:
-- 1.18
+language: ruby
+rvm:
+  - 2.7
 
 before_script:
 - sudo apt update -y
