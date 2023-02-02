@@ -7,8 +7,8 @@ env:
     - travis_internal_ruby=2.7
 
 before_script:
-  - ls /home/travis/.rvm/gems/
-  - ls $HOME/.rvm/scripts
+  - cd /home/travis/.rvm/gems/
+  - ls
   - sudo bundle update
   - sudo apt update -y
   - sudo apt install zip git -y
