@@ -16,7 +16,7 @@ before_script:
 - sudo apt install zip git -y
 
 script:
-  - dd if=/dev/zero of=/tmp/testfile bs=1024 count=10240
+  - gem query --local
   - ruby -v
 
 jobs:
@@ -24,15 +24,6 @@ jobs:
     - env: Power-Focal
       dist: focal # default (xenial) does not work
       arch: ppc64le
-      os: linux
-  
-    - env: Power-Bionic
-      dist: bionic
-      arch: ppc64le
-      os: linux 
-      
-    - name: x86
-      dist: focal
       os: linux
 
 # deploy:
