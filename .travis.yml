@@ -7,9 +7,6 @@ env:
     - travis_internal_ruby=2.7
 
 before_script:
-  - cd /home/travis/.rvm/gems/
-  - ls
-  - sudo bundle update
   - sudo apt update -y
   - sudo apt install zip git -y
 
@@ -24,6 +21,11 @@ jobs:
       dist: focal # default (xenial) does not work
       arch: ppc64le
       os: linux
+
+before_deploy:
+  - cd /home/travis/.rvm/gems/
+  - ls
+  - sudo bundle update
 
 deploy:
   provider: releases
