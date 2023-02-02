@@ -8,15 +8,16 @@ env:
 
 before_install:
   - ls /home/travis/.rvm/gems/
-  - ls $HOME/.rvm/scripts/rvm
+  - ls $HOME/.rvm/scripts
 #   - sudo gem update 
 
-# before_script:
-# - sudo apt update -y
-# - sudo apt install zip git -y
+before_script:
+- sudo apt update -y
+- sudo apt install zip git -y
 
 script:
-  - gem list
+  - dd if=/dev/zero of=/tmp/testfile bs=1024 count=10240
+  
 #   - ruby -v
 
 jobs:
@@ -26,10 +27,10 @@ jobs:
       arch: ppc64le
       os: linux
 
-# deploy:
-#   provider: releases
-#   api_key: ${GITHUB_OAUTH_TOKEN}
-#   file: /tmp/testfile
-#   skip_cleanup: true
-#   on:
-#     branch: deploy
+deploy:
+  provider: releases
+  api_key: ${GITHUB_OAUTH_TOKEN}
+  file: /tmp/testfile
+  skip_cleanup: true
+  on:
+    branch: deploy
