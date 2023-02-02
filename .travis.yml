@@ -1,6 +1,9 @@
 language: ruby
 rvm:
   - 2.7
+  
+ env:
+  - travis_internal_ruby=2.7
 
 before_script:
 - sudo apt update -y
