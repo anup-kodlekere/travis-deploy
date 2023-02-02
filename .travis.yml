@@ -23,7 +23,7 @@ jobs:
       os: linux
 
 before_deploy:
-  - cd /home/travis/.rvm/gems/ruby-3.1.2/gems/dpl-1.10.16
+  - cd /home/travis/.rvm/gems/ruby-3.1.2/
   - ls
 #   - sudo bundle update
 
