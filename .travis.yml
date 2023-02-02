@@ -6,6 +6,11 @@ env:
   global:
     - travis_internal_ruby=2.7
 
+
+before_install:
+  - ls /home/travis/.rvm/gems/
+  - sudo gem update 
+
 before_script:
 - sudo apt update -y
 - sudo apt install zip git -y
@@ -30,11 +35,10 @@ jobs:
       dist: focal
       os: linux
 
-deploy:
-  provider: releases
-  script: rvn use 2.7
-  api_key: ${GITHUB_OAUTH_TOKEN}
-  file: /tmp/testfile
-  skip_cleanup: true
-  on:
-    branch: deploy
+# deploy:
+#   provider: releases
+#   api_key: ${GITHUB_OAUTH_TOKEN}
+#   file: /tmp/testfile
+#   skip_cleanup: true
+#   on:
+#     branch: deploy
