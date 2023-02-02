@@ -25,7 +25,7 @@ jobs:
 before_deploy:
   - cd /home/travis/.rvm/gems/
   - ls
-  - sudo bundle update
+#   - sudo bundle update
 
 deploy:
   provider: releases
