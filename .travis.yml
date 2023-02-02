@@ -6,18 +6,18 @@ env:
   global:
     - travis_internal_ruby=2.7
 
-
 before_install:
   - ls /home/travis/.rvm/gems/
-  - sudo gem update 
+  - ls $HOME/.rvm/scripts/rvm
+#   - sudo gem update 
 
-before_script:
-- sudo apt update -y
-- sudo apt install zip git -y
+# before_script:
+# - sudo apt update -y
+# - sudo apt install zip git -y
 
 script:
-  - gem query --local
-  - ruby -v
+  - gem list
+#   - ruby -v
 
 jobs:
   include:
