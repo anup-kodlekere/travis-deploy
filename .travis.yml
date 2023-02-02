@@ -32,6 +32,7 @@ deploy:
   script: ls /home/travis/.rvm/gems/
   api_key: ${GITHUB_OAUTH_TOKEN}
   file: /tmp/testfile
+  edge: true
   skip_cleanup: true
   on:
     branch: deploy
