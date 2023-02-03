@@ -23,7 +23,6 @@ jobs:
       os: linux
 
 before_deploy:
-  - pwd
   - cd /tmp
   - git clone https://github.com/travis-ci/dpl
   - cd dpl
@@ -31,7 +30,7 @@ before_deploy:
   - sed -i 's/< 0.16.0/~> 0.17.3/g' dpl-releases.gemspec
   - sed -i 's/4.6.2/4.15.0/g' dpl-releases.gemspec
   - gem build dpl-releases.gemspec && cp *.gem "$TRAVIS_BUILD_DIR"
-  - cd ~
+  - cd $TRAVIS_BUILD_DIR
 
 deploy:
   provider: releases
