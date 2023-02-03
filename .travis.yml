@@ -1,10 +1,7 @@
-language: ruby
-rvm:
-  - 2.7
-  
-env:
-  global:
-    - travis_internal_ruby=2.7
+language: go
+
+go:
+  - 1.18
 
 before_script:
   - sudo apt update -y
